@@ -1,11 +1,11 @@
 # go-sms-sender
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/casdoor/go-sms-sender)](https://goreportcard.com/report/github.com/casdoor/go-sms-sender)
-[![Go](https://github.com/casdoor/go-sms-sender/actions/workflows/ci.yml/badge.svg)](https://github.com/casdoor/go-sms-sender/actions/workflows/ci.yml)
-[![Go Reference](https://pkg.go.dev/badge/github.com/casdoor/go-sms-sender.svg)](https://pkg.go.dev/github.com/casdoor/go-sms-sender)
-![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/casdoor/go-sms-sender)
+[![Go Report Card](https://goreportcard.com/badge/github.com/hanzo-iam/go-sms-sender)](https://goreportcard.com/report/github.com/hanzo-iam/go-sms-sender)
+[![Go](https://github.com/hanzo-iam/go-sms-sender/actions/workflows/ci.yml/badge.svg)](https://github.com/hanzo-iam/go-sms-sender/actions/workflows/ci.yml)
+[![Go Reference](https://pkg.go.dev/badge/github.com/hanzo-iam/go-sms-sender.svg)](https://pkg.go.dev/github.com/hanzo-iam/go-sms-sender)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/hanzo-iam/go-sms-sender)
 
-This is a powerful open-source library for sending SMS message, which will help you to easily integrate with the popular SMS providers. And it has been applied to [Casdoor](https://github.com/casdoor/casdoor), if you still don’t know how to use it after reading README.md, you can refer to it.
+This is a powerful open-source library for sending SMS message, which will help you to easily integrate with the popular SMS providers. And it has been applied to [Hanzo IAM](https://github.com/hanzo-iam/hanzo-iam), if you still don’t know how to use it after reading README.md, you can refer to it.
 
 We support the following SMS providers, welcome to contribute.
 
@@ -31,7 +31,7 @@ We support the following SMS providers, welcome to contribute.
 Use `go get` to install：
 
 ```
-go get github.com/casdoor/go-sms-sender
+go get github.com/hanzo-iam/go-sms-sender
 ```
 
 ## How to use
@@ -71,7 +71,7 @@ Please get necessary information from Twilio [console](https://console.twilio.co
 ```go
 package main
 
-import "github.com/casdoor/go-sms-sender"
+import "github.com/hanzo-iam/go-sms-sender"
 
 func main() {
 	client, err := go_sms_sender.NewSmsClient(go_sms_sender.Twilio, "ACCOUNT_SID", "AUTH_TOKEN", "", "TEMPLATE_CODE")
@@ -96,7 +96,7 @@ Before you begin, you need to sign up for an Aliyun account and retrieve your [C
 ```go
 package main
 
-import "github.com/casdoor/go-sms-sender"
+import "github.com/hanzo-iam/go-sms-sender"
 
 func main() {
 	client, err := go_sms_sender.NewSmsClient(go_sms_sender.Aliyun, "ACCESS_KEY_ID", "ACCESS_KEY_SECRET", "SIGN_NAME", "TEMPLATE_CODE")
@@ -119,7 +119,7 @@ func main() {
 ```go
 package main
 
-import "github.com/casdoor/go-sms-sender"
+import "github.com/hanzo-iam/go-sms-sender"
 
 func main() {
 	client, err := go_sms_sender.NewSmsClient(go_sms_sender.TencentCloud, "secretId", "secretKey", "SIGN_NAME", "TEMPLATE_CODE", "APP_ID")
@@ -146,7 +146,7 @@ func main() {
 ```go
 package main
 
-import "github.com/casdoor/go-sms-sender"
+import "github.com/hanzo-iam/go-sms-sender"
 
 func main() {
 	client, err := go_sms_sender.NewSmsClient(go_sms_sender.Netgsm, "yourAccessId", "yourAccessKey", "yourSign", "yourTemplate")
