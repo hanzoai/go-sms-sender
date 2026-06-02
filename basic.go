@@ -36,6 +36,7 @@ const (
 	Netgsm       = "Netgsm SMS"
 	OsonSms      = "OSON SMS"
 	UniSms       = "Uni SMS"
+	Plivo        = "Plivo SMS"
 )
 
 type SmsClient interface {
@@ -82,6 +83,8 @@ func NewSmsClient(provider string, accessId string, accessKey string, sign strin
 		return GetOsonClient(accessId, accessKey, sign, template)
 	case UniSms:
 		return GetUnismsClient(accessId, accessKey, sign, template)
+	case Plivo:
+		return GetPlivoClient(accessId, accessKey, template)
 	default:
 		return nil, fmt.Errorf("unsupported provider: %s", provider)
 	}

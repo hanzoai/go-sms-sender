@@ -25,6 +25,7 @@ We support the following SMS providers, welcome to contribute.
 - [Huyi](https://www.ihuyi.com/)
 - [Netgsm](https://www.netgsm.com.tr/)
 - [Oson Sms](https://osonsms.com/)
+- [Plivo](https://www.plivo.com/)
 
 ## Installation
 
@@ -185,6 +186,34 @@ func main() {
 	params["code"] = "123456"
 	phoneNumer := "+992123456789"
 	err = client.SendMessage(params, phoneNumer)
+	if err != nil {
+		panic(err)
+	}
+}
+```
+
+
+### Plivo
+
+Get your Auth ID and Auth Token from the Plivo [console](https://console.plivo.com/dashboard/).
+`targetPhoneNumber[0]` is the sender (a Plivo number in E.164 format); subsequent entries are recipients.
+
+```go
+package main
+
+import "github.com/hanzoai/go-sms-sender"
+
+func main() {
+	client, err := go_sms_sender.NewSmsClient(go_sms_sender.Plivo, "AUTH_ID", "AUTH_TOKEN", "", "Your code is %s")
+	if err != nil {
+		panic(err)
+	}
+
+	params := map[string]string{}
+	params["code"] = "123456"
+	sender := "+12062598397"
+	recipient := "+19137779708"
+	err = client.SendMessage(params, sender, recipient)
 	if err != nil {
 		panic(err)
 	}
