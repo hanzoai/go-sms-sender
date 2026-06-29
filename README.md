@@ -1,3 +1,5 @@
+<p align="center"><img src=".github/hero.svg" alt="go-sms-sender" width="880"></p>
+
 # go-sms-sender
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/hanzo-iam/go-sms-sender)](https://goreportcard.com/report/github.com/hanzo-iam/go-sms-sender)
