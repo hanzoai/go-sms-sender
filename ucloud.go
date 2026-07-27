@@ -15,6 +15,7 @@
 package go_sms_sender
 
 import (
+	"errors"
 	"fmt"
 
 	"github.com/ucloud/ucloud-sdk-go/services/usms"
@@ -77,7 +78,7 @@ func (c *UcloudClient) SendMessage(param map[string]string, targetPhoneNumber ..
 		return err
 	}
 	if response.RetCode != 0 {
-		return fmt.Errorf(response.Message)
+		return errors.New(response.Message)
 	}
 	return nil
 }

@@ -16,6 +16,7 @@ package go_sms_sender
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"strings"
 
@@ -79,7 +80,7 @@ func (c *AliyunClient) SendMessage(param map[string]string, targetPhoneNumber ..
 		}
 
 		if aliyunResult.Message != "" {
-			return fmt.Errorf(aliyunResult.Message)
+			return errors.New(aliyunResult.Message)
 		}
 	}
 

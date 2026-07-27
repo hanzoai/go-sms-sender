@@ -17,6 +17,7 @@ package go_sms_sender
 import (
 	"bytes"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"mime/multipart"
@@ -115,7 +116,7 @@ func handleSubmailResult(result []byte) error {
 		}
 
 		if submailErrorResult.Msg != "" {
-			return fmt.Errorf(submailErrorResult.Msg)
+			return errors.New(submailErrorResult.Msg)
 		}
 	}
 
@@ -128,7 +129,7 @@ func handleSubmailResult(result []byte) error {
 	}
 
 	if len(errMsgs) > 0 {
-		return fmt.Errorf(strings.Join(errMsgs, "|"))
+		return errors.New(strings.Join(errMsgs, "|"))
 	}
 
 	return nil

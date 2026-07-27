@@ -1,6 +1,6 @@
 module github.com/hanzoai/go-sms-sender
 
-go 1.17
+go 1.26.5
 
 require (
 	github.com/aliyun/alibaba-cloud-sdk-go v1.62.545

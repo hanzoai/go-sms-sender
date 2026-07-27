@@ -15,6 +15,7 @@
 package go_sms_sender
 
 import (
+	"errors"
 	"fmt"
 	"strconv"
 
@@ -83,7 +84,7 @@ func (c *TencentClient) SendMessage(param map[string]string, targetPhoneNumber .
 		return err
 	}
 	if len(response.Response.SendStatusSet) > 0 && response.Response.SendStatusSet[0].Code != nil && *response.Response.SendStatusSet[0].Code != "Ok" {
-		return fmt.Errorf(*response.Response.SendStatusSet[0].Message)
+		return errors.New(*response.Response.SendStatusSet[0].Message)
 	}
 	return err
 }
