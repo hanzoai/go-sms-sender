@@ -39,10 +39,10 @@ type SubmailResult struct {
 }
 
 func buildSubmailPostdata(param map[string]string, appid string, signature string, project string, targetPhoneNumber []string) (map[string]string, error) {
-	multi := make([]map[string]interface{}, 0, 32)
+	multi := make([]map[string]any, 0, 32)
 
 	for _, phoneNumber := range targetPhoneNumber[0:] {
-		multi = append(multi, map[string]interface{}{
+		multi = append(multi, map[string]any{
 			"to":   phoneNumber,
 			"vars": param,
 		})

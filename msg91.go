@@ -65,7 +65,7 @@ func (m *Msg91Client) SendMessage(param map[string]string, targetPhoneNumber ...
 }
 
 func buildPayload(templateId, senderId, shortURL, mobiles string, variables map[string]string) (string, error) {
-	payload := make(map[string]interface{})
+	payload := make(map[string]any)
 
 	payload["template_id"] = templateId
 	payload["sender"] = senderId

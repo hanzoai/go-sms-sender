@@ -35,7 +35,7 @@ func GetAmazonSNSClient(accessKeyID string, secretAccessKey string, template str
 	}
 
 	sess, err := session.NewSession(&aws.Config{
-		Region:      aws.String(region[0]),
+		Region:      new(region[0]),
 		Credentials: credentials.NewStaticCredentials(accessKeyID, secretAccessKey, ""),
 	})
 	if err != nil {
@@ -67,12 +67,12 @@ func (a *AmazonSNSClient) SendMessage(param map[string]string, targetPhoneNumber
 	messageAttributes := make(map[string]*sns.MessageAttributeValue)
 	for k, v := range param {
 		messageAttributes[k] = &sns.MessageAttributeValue{
-			DataType:    aws.String("String"),
-			StringValue: aws.String(v),
+			DataType:    new("String"),
+			StringValue: new(v),
 		}
 	}
 
-	for i := 0; i < len(targetPhoneNumber); i++ {
+	for i := range targetPhoneNumber {
 		_, err := a.svc.Publish(&sns.PublishInput{
 			Message:           &bodyContent,
 			PhoneNumber:       &targetPhoneNumber[i],

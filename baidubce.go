@@ -57,7 +57,7 @@ func (c *BaiduClient) SendMessage(param map[string]string, targetPhoneNumber ...
 		return fmt.Errorf("missing parameter: targetPhoneNumber")
 	}
 
-	contentMap := make(map[string]interface{})
+	contentMap := make(map[string]any)
 	contentMap["code"] = code
 
 	sendSmsArgs := &api.SendSmsArgs{

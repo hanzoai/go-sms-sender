@@ -73,10 +73,10 @@ func (c *TencentClient) SendMessage(param map[string]string, targetPhoneNumber .
 	}
 
 	request := sms.NewSendSmsRequest()
-	request.SmsSdkAppId = common.StringPtr(c.appId)
-	request.SignName = common.StringPtr(c.sign)
+	request.SmsSdkAppId = new(c.appId)
+	request.SignName = new(c.sign)
 	request.TemplateParamSet = common.StringPtrs(paramArray)
-	request.TemplateId = common.StringPtr(c.template)
+	request.TemplateId = new(c.template)
 	request.PhoneNumberSet = common.StringPtrs(targetPhoneNumber)
 
 	response, err := c.core.SendSms(request)
